@@ -1,0 +1,8 @@
+{
+  "name": "lib-dom-hello",
+  "version": "0.0.1",
+  "description": "sandbox dom operation library.",
+  "main": "index.js",
+  "author": "Shota Tsukamoto (shootacean@gmail.com)",
+  "license": "MIT"
+}
