@@ -3,7 +3,7 @@
  * @param button 
  */
 function helloWorld (button: HTMLButtonElement) {
-    const msg = 'Hello, World!'
+    const msg: string = 'Hello, World!'
     button.addEventListener('click', () => {
         alert(msg)
     })
