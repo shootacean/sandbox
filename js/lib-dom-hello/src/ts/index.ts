@@ -1,10 +1,19 @@
 /**
+ * ボタンのクリックイベントに任意のアラートメッセージを設定する
+ * @param button 
+ */
+function alertMessage (button: HTMLButtonElement, msg: string) {
+    button.addEventListener('click', () => {
+        alert(msg)
+    })
+}
+
+/**
  * ボタンのクリックイベントに`Hello, World!`アラートを設定する
  * @param button 
  */
 function helloWorld (button: HTMLButtonElement) {
-    const msg: string = 'Hello, World!'
     button.addEventListener('click', () => {
-        alert(msg)
+        alertMessage(button, 'Hello, World!')
     })
 }
