@@ -17,3 +17,16 @@ function helloWorld(button) {
         alertMessage(button, 'Hello, World!');
     });
 }
+/**
+ * テキストボックスとラベルをバインドする
+ * @param input
+ * @param label
+ */
+function bindText(input, label) {
+    if (!input || !label) {
+        console.error('Undefined input or label!');
+    }
+    input.addEventListener('input', function () {
+        label.innerHTML = input.value;
+    });
+}

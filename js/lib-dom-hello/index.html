@@ -10,10 +10,25 @@
 
 <body>
     <script src="./dist/index.js"></script>
-    <button type="button" id="button">Alert</button>
+    <div>
+        <button type="button" id="button">Alert</button>
+    </div>
+    <div>
+        <input type="text" id="bind-text">
+        <div>
+            <label id="bind-label" for="bind-text"></label>
+        </div>
+    </div>
     <script>
-        const button = document.getElementById('button');
-        helloWorld(button);
+        helloWorld(document.getElementById('button'))
+        bindText(
+            document.getElementById('bind-text'),
+            document.getElementById('bind-label')
+        )
+        bindText(
+            document.getElementById('bind-text'),
+            document.getElementById('bind-label')
+        )
     </script>
 </body>
 
