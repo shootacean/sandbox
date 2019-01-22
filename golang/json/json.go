@@ -7,21 +7,21 @@ import (
     "log"
 )
 
-type Setting struct {
-    Keyword string `json:"keyword"`
+type Keyword struct {
+    Word string `json:"keyword"`
 }
 
 func main() {
-    bytes, err := ioutil.ReadFile("gin.json")
+    bytes, err := ioutil.ReadFile("keywords.json")
     if err != nil {
         log.Fatal(err)
     }
-    var settings []Setting
-    if err := json.Unmarshal(bytes, &settings); err != nil {
+    var keywords []Keyword
+    if err := json.Unmarshal(bytes, &keywords); err != nil {
         log.Fatal(err)
     }
-    for _, s := range settings{
-        fmt.Printf("%s\n", s.Keyword)
+    for _, s := range keywords {
+        fmt.Printf("%s\n", s.Word)
     }
 }
 
