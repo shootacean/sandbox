@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Richtext Sandbox</title>
+  <style lang="css">
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      background-color: aliceblue;
+    }
+
+    p {
+      background-color: white;
+      overflow: visible;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    .italic {
+      font-style: italic;
+    }
+  </style>
+  <script>
+      window.onload = function () {
+
+          const getSelectionText = () => {
+              if (window.getSelection) {
+                  return window.getSelection().toString();
+              } else if (document.selection) {
+                  return document.selection.createRange().text;
+              }
+              return '';
+          };
+          document.getElementById('editor').addEventListener('mouseup', () => {
+              const nowSelection = getSelectionText();
+              document.getElementById('now-selection').innerText = nowSelection;
+          });
+
+          document.querySelectorAll('.button.bold').forEach(element => {
+              element.addEventListener('click', () => {
+                  document.execCommand('insertHtml', false, '<span class="bold">' + document.getSelection().toString() + '</span>');
+              });
+          });
+
+          document.querySelectorAll('.button.italic').forEach(element => {
+              element.addEventListener('click', () => {
+
+                  // これだと、中にあるspanが消えてしまう
+                  // document.execCommand('insertHtml', false, '<span class="italic">' + document.getSelection().toString() + '</span>');
+
+                  const selected = document.getSelection();
+                  if (selected.rangeCount <= 0) return false;
+                  console.log('selection');
+                  console.log(selected);
+
+                  const selectedRange = selected.getRangeAt(0);
+                  console.log('range');
+                  console.log(selectedRange);
+
+                  const documentFragment = selectedRange.cloneContents();
+                  console.log('clone selected');
+                  console.log(documentFragment);
+
+                  const tmp = document.createElement('div');
+                  tmp.appendChild(documentFragment);
+
+                  document.execCommand('insertHtml', false, '<span class="italic">' + tmp.innerHTML + '</span>');
+              });
+          });
+      };
+  </script>
+</head>
+
+<body>
+<div>
+  <h2>Selection Test</h2>
+  <h3>Now selection</h3>
+  <p id="now-selection"></p>
+  <h3>Editor</h3>
+  <button type="button" class="button bold">bold</button>
+  <button type="button" class="button italic">italic</button>
+  <p id="editor" contenteditable="true"></p>
+</div>
+</body>
+
+</html>
