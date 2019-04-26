@@ -14,7 +14,7 @@ firebase-debug.log*
 # Uncomment this if you'd like others to create their own Firebase project.
 # For a team working on the same Firebase project(s), it is recommended to leave
 # it commented so all members can deploy to the same project(s) in .firebaserc.
-# .firebaserc
+.firebaserc
 
 # Runtime data
 pids
@@ -30,12 +30,20 @@ coverage
 
 # nyc test coverage
 .nyc_output
+.DS_Store
+node_modules
+/dist
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
+/tests/e2e/videos/
+/tests/e2e/screenshots/
 
 # Bower dependency directory (https://bower.io/)
 bower_components
+# local env files
+.env.local
+.env.*.local
 
 # node-waf configuration
 .lock-wscript
@@ -60,6 +68,18 @@ node_modules/
 
 # Yarn Integrity file
 .yarn-integrity
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
 # dotenv environment variables file
 .env
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
