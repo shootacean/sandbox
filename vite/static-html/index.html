@@ -6,10 +6,27 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- スクリプトやスタイルを解決してくれる -->
-    <link rel="stylesheet" href="src/style.css">
+    <link href="https://cdn.skypack.dev/sanitize.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/src/style.css">
     <title>Static HTML | Vite | Sandbox</title>
   </head>
   <body>
-    <h1>Hello, World</h1>
+    <div class="container">
+      <header class="header">
+        <h1>Hello, World</h1>
+      </header>
+      <div class="main-wrapper">
+        <main class="main">
+          <h2>main</h2>
+        </main>
+        <aside>
+          <h2>side menu</h2>
+        </aside>
+      </div>
+      <footer class="footer">
+        <h2>footer</h2>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

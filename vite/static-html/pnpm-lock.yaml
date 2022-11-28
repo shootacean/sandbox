@@ -1,8 +1,12 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@unocss/reset': ^0.46.5
   typescript: ^4.6.4
   vite: ^3.2.3
+
+dependencies:
+  '@unocss/reset': 0.46.5
 
 devDependencies:
   typescript: 4.9.3
@@ -27,6 +31,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@unocss/reset/0.46.5:
+    resolution: {integrity: sha512-DU1sisNixEaUsnfDdbU+POaedJLKUtalHnOOce2Txxrcakf7M2/I5/9cRIXt5diVbPjIyoDPcx+7Gn8K0cTGqg==}
+    dev: false
 
   /esbuild-android-64/0.15.16:
     resolution: {integrity: sha512-Vwkv/sT0zMSgPSVO3Jlt1pUbnZuOgtOQJkJkyyJFAlLe7BiT8e9ESzo0zQSx4c3wW4T6kGChmKDPMbWTgtliQA==}
