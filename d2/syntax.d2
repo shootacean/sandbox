@@ -1,0 +1,59 @@
+hello -> world
+hello: hi
+hello -> world: bye
+
+a -> b -> c
+
+aws.server
+# aws2: {
+#     server2
+# }
+
+# shape
+circle: {shape: circle}
+hexagon: {shape: hexagon}
+queue: {shape: queue}
+package: {shape: package}
+cylinder: {shape: cylinder}
+page: {shape: page}
+cloud: {shape: cloud}
+step1: {shape: step}
+step2: {shape: step}
+step3: {shape: step}
+circle -> hexagon -> queue -> package -> cylinder -> page -> cloud
+step1 -> step2 -> step3
+
+# class
+User: {
+    shape: class
+
+    id: uuid
+    public1: string
+    +public2: string
+    -private: int
+    \#protected: boolean
+}
+
+# tables
+Posts: {
+    shape: sql_table
+
+    id: uuid {constraint: primary_key}
+    title: int
+}
+
+Posts -> User
+
+# md and code
+md: |`
+    # h1
+    - A
+    - B
+    - C
+`|
+
+ts: |`go
+    func() {
+        fmt.Printf("Hello, World!")
+    }
+`|
