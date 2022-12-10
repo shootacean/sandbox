@@ -71,6 +71,8 @@ classDiagram
 
 ## Git Graph
 
+### Sample
+
 ```mermaid
 gitGraph
     commit
@@ -83,4 +85,68 @@ gitGraph
     commit
     commit
     merge develop
+```
+
+### Git Flow
+
+1. main
+2. hotfix
+3. release/1.0.0
+4. release/1.1.0
+5. develop
+6. feature/A
+7. feature/B
+8. feature/C
+9. feature/D
+
+```mermaid
+%%{init: { 'theme': 'base', 'gitGraph': {'rotateCommitLabel': true}} }%%
+gitGraph
+    checkout main
+    commit
+    branch develop order: 4
+    commit
+    branch feature/A order: 5
+    commit
+    commit
+    checkout develop
+    branch feature/B order: 6
+    commit
+    commit
+    checkout develop
+    merge feature/A
+    commit
+    merge feature/B
+    branch release/1.0.0 order: 2
+    commit id: "bug fix only 1"
+    commit id: "bug fix only 2"
+    commit id: "bug fix only 3"
+    checkout main
+    merge release/1.0.0 tag: "1.0.0"
+    checkout develop
+    merge release/1.0.0
+    checkout main
+    branch hotfix order: 1
+    commit
+    commit
+    checkout main
+    merge hotfix tag: "1.0.1"
+    checkout develop
+    merge hotfix
+    branch feature/C order: 8
+    commit
+    commit
+    branch feature/D order: 9
+    commit
+    commit
+    checkout develop
+    merge feature/C
+    merge feature/D
+    branch release/1.1.0 order: 3
+    commit id: "bug fix only 4"
+    commit id: "bug fix only 5"
+    checkout main
+    merge release/1.1.0 tag: "1.1.0"
+    checkout develop
+    merge release/1.1.0
 ```
